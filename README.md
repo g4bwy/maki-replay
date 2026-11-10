@@ -126,3 +126,7 @@ ln -sfn "$PWD" ~/.local/share/maki/site/pack/dev/start/maki-replay
 
 Run `/reload` after each edit. A hand-placed package gets exactly what its
 manifest names, with no approval step.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
