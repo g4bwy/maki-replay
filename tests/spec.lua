@@ -1,9 +1,11 @@
--- Spec for the /replay plugin. Runs inside maki (maki.test_helpers) or
--- standalone: lua ~/.config/maki/lua/replay_spec.lua
+-- Spec for the /replay conversion core. Runs inside maki (maki.test_helpers)
+-- or standalone: lua5.1 tests/spec.lua
 
 local dir = debug.getinfo(1, "S").source:match("^@?(.*/)")
 if dir then
-  package.path = dir .. "?.lua;" .. package.path
+  -- The core is a package module: it lives under lua/, and maki finds it there
+  -- by the same name a standalone run has to spell out.
+  package.path = dir .. "../lua/?.lua;" .. package.path
 end
 
 local core = require("replay_core")

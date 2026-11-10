@@ -1,0 +1,15 @@
+# maki package manifest. See https://maki.sh/docs/packages/
+# A package keeps only what this file names.
+
+min_maki_version = "0.7.1"
+
+[permissions]
+# maki.env.state_dir(), maki.fs.read(), maki.fs.dir(), maki.fs.metadata():
+# the export reads the session transcript and its archived predecessors.
+fs_read = true
+# maki.fs.mkdir(), maki.fs.write(), maki.fs.append(): the <id>.jsonl and
+# <id>.sub-N.jsonl files it emits.
+fs_write = true
+# maki.fn.jobstart(): a long session passes 1 GiB, which one Lua string cannot
+# hold, so the plugin streams windows through `dd | base64 | tr`.
+run = true
